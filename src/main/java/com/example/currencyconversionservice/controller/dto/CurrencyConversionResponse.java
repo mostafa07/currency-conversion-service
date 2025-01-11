@@ -1,4 +1,6 @@
-package com.example.currencyconversionservice.dto;
+package com.example.currencyconversionservice.controller.dto;
+
+import com.example.currencyconversionservice.proxy.dto.CurrencyExchangeResponse;
 
 import java.math.BigDecimal;
 
@@ -28,13 +30,13 @@ public class CurrencyConversionResponse {
     }
 
     public CurrencyConversionResponse(final CurrencyExchangeResponse currencyExchangeResponse,
-                                      final BigDecimal quantity) {
+                                      final BigDecimal quantity, final String environment) {
         this.id = currencyExchangeResponse.getId();
         this.from = currencyExchangeResponse.getFrom();
         this.to = currencyExchangeResponse.getTo();
         this.rate = currencyExchangeResponse.getRate();
-        this.environment = currencyExchangeResponse.getEnvironment();
 
+        this.environment = environment;
         this.quantity = quantity;
         // TODO extract into service or other place for handling business logic
         this.totalCalculatedAmount = rate.multiply(quantity);
