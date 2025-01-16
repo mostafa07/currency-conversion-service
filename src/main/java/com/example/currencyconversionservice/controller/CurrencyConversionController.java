@@ -37,7 +37,7 @@ public class CurrencyConversionController {
                 currencyExchangeResponse.getEnvironment() + " rest template");
     }
 
-    @GetMapping("feign/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
+    @GetMapping("currency-conversion/feign/from/{from}/to/{to}/quantity/{quantity}")
     public CurrencyConversionResponse retrieveCurrencyConversionUsingFeign(@PathVariable("from") String from,
                                                                            @PathVariable("to") String to,
                                                                            @PathVariable("quantity") BigDecimal quantity) {
